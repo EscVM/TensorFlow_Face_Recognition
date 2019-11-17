@@ -33,7 +33,7 @@ We can do that in three different ways:
 - a solution is using k-neearest neighboorhood. The framework let you easily train a k-nn model with the acquired dataset and then perform inference with the trained model. This is faster and in most of the cases mantains a similar accuracy.
 - finally, we can train a simple multi-layer perceptron trained to classify new embeddings. We didn't include this multi-layer perceptron feature in this repository for a series of unfortunate events.
 
-Now, you should have all information to undestarstand what is going on in this repository, So, let's get started!
+Now, you should have all information to undestarstand what is going on in this repository. So, let's get started!
 
 # 1.0 Getting Started
 
