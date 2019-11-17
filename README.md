@@ -5,5 +5,22 @@ If so, this repository is right for you. Powered by a cascade of four state of t
 
 All code have been tested on a NVDIA 2080 that can easilly give you more than 40 fps. Moreover, it perfectly works also on a [Jetson Xavier](https://www.nvidia.com/it-it/autonomous-machines/embedded-systems/jetson-agx-xavier/) that can be easily installed on the site where you want to deploy your sistem (let's move this AI on the edge).
 
-**Side Notes**
+**Side Notes**:
 This is repository is a stupid demo made in a hurry for our robotic center by me and ?. It has been a distraction from our research, but that with the community help can really become an interesting and helpful project. It is based on [dbib](http://dlib.net/) and heavily inspired by [face_recognition](https://github.com/ageitgey/face_recognition) repository. Whover has worked with "face_recognition" repository knows that it does not work well and is far from been reliable and accurate. We improved the general framework and put everything together in sweet and compact ready to work system. We intentionally left a easy customizable framework in order to let the community work and improve this Virtual Security Assistant.
+
+## How it works
+
+Let's see very briefly how the general framework works. There are four networks running behind the curtains. They all worked in a cascade manner. So, the output of the first network is the starting point of the second one and so on. 
+
+- **1. Faces detection:** the first one is a convolutional neural network (CNN) trained to search in an image the presence of faces. Its outputs are all possible bounding boxes related with detected faces. 
+- **2. Facial landmarks detection:** for all detected faces (locations given by the bounding boxes detected by the previous network) we crop the portion of the face and we feed a second network to get [facial landmarks](https://miro.medium.com/max/828/1*AbEg31EgkbXSQehuNJBlWg.png). These are a bunch of points of the detected faces that highlight certain specific locations like eye, nose, etc. We use these points to pose and project all faces more parallel as possible to the camera. Doing so, it increases the accuracy and the precision of the model. The framework gives you the possibility to draw on all detected faces these points creating a cool 007 like [effect](https://article.images.consumerreports.org/f_auto/prod/content/dam/CRO%20Images%202019/Electronics/05May/CR-Electronics-InlineHero-Facebook-Clarifies-Facial-Recognition-05-19-v2).
+- **3. Face side detection:** before feeding the last network (4) for all detected faces (locations given by the bounding boxes detected by the first network) we feed a third CNN model. This network is responsible to detect if the face is in "side" position. This is a really important passage, because the rest of the pipeline doesn't work well with faces in side position. Indeed, in case of a side face, the projecting algorithm distorts so much the resulting face that the last network produces pretty random results. So, if a certain face is in side position we don't further process that particular face, but we only show a red bounding box around it (the framework gives you the possibility to blur this unrecognized face).
+- **4. Embeddings generation:** this is the part I like most. Practically, for all detected not side projected face we use a final network to generate a vector (simply a list of number) of 128 elements. These are not random numbers, but are "attributes" that the network has learnt to give at every face is feeded with. As if we are ask to describe a face we start to say the color of the eyes, hair, etc...the same does the network, but with numbers. This is soo cool and it encapsulates most of the philosophy of Deep Learning. So, at the end of this long neural pipeline we have for each face, present for example in a video frame, a nice and clean vector that gives a very accurate representation of the corresponding face.
+
+Let's see all together with a graphical representation:
+
+![Flow_chart of the recognition proces](images/flow_chart.png)
+
+First we use the first network to detect possible faces in the given image. Then, we find the facial landmarks of our detected favorite wizard. At the same time, the third network says us that we are good to go and so, we can safely feed the last one producing the so wanted embedded representation.
+
+But, wait! Where is the recognition part?
