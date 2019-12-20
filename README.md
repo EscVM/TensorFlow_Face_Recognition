@@ -37,4 +37,22 @@ Now, you should have all information to undestarstand what is going on in this r
 
 # 1.0 Getting Started
 
-Coming soon...
+## 1.1 Installation
+
+Python3 is required. We tested the project with TensorFlow 1.14, but it should work also with other versions and even TensorFlow 2.0. Keras is not required!
+
+We used only a couple of libraries, but for your simplicity we also created a 'requirements.txt' file. We purposely didn't add TensorFlow installation in the txt file, because it's up to you to choose your prefered version (gpu, cpu, etc...). Moreover, TensorFlow installation can be sometime pretty easy as 'pip install', but usually can become a pain in the ****. Follow the official [guide](https://www.tensorflow.org/install) and good luck:)  
+
+1. Clone this repository
+   ```bash
+   git clone https://github.com/EscVM/Virtual_Security_Assistant
+   ```
+2. Install the required packages
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+If you want to install everything manually, these are the libraries we used:
+- numpy
+- opencv-python
+- paho-mqtt
+- tensorflow
