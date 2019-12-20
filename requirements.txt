@@ -1,0 +1,7 @@
+numpy
+opencv-python
+sklearn
+tqdm
+paho-mqtt
+flask
+tensorflow-gpu

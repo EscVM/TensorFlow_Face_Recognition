@@ -6,7 +6,7 @@ If so, this repository is right for you. Powered by a cascade of four state of t
 All code have been tested on a NVDIA 2080 that can easilly give you more than 40 fps. Moreover, it perfectly works also on a [Jetson Xavier](https://www.nvidia.com/it-it/autonomous-machines/embedded-systems/jetson-agx-xavier/) that can be easily installed on the site where you want to deploy your sistem (let's move this AI on the edge).
 
 **Side Notes**:
-This repository is a stupid demo made in a hurry for our robotic center by me and [fsalv](https://github.com/fsalv). It has been a distraction from our research, but with the community help can really become an interesting and helpful project. It is based on [dlib](http://dlib.net/) and heavily inspired by [face_recognition](https://github.com/ageitgey/face_recognition) repository. Whover has worked with the "face_recognition" repository knows that it doesn't work very well and is far from been reliable and accurate. We improved the general framework and put everything together in sweet and compact ready to work system. We intentionally left a easy customizable framework in order to let the community work and improve this Virtual Security Assistant.
+This repository is a stupid demo made in a hurry for our robotic center by me and ?. It has been a distraction from our research, but with the community help can really become an interesting and helpful project. It is based on [dlib](http://dlib.net/) and heavily inspired by [face_recognition](https://github.com/ageitgey/face_recognition) repository. Whover has worked with the "face_recognition" repository knows that it doesn't work very well and is far from been reliable and accurate. We improved the general framework and put everything together in sweet and compact ready to work system. We intentionally left a easy customizable framework in order to let the community work and improve this Virtual Security Assistant.
 
 ## How it works
 
@@ -30,7 +30,7 @@ After getting our embedded representations, we compare it with a database with k
 We can do that in three different ways: 
 
 - with simply [Euclidean distance](https://en.wikipedia.org/wiki/Euclidean_distance) meause between our new ebedded and the database. This is simple and has pretty good results, but scales bad with many knwown persons inside the database. That because I have to perform a mesure for all persons and all their embeddings inside the database.
-- a solution is using k-nearest neighboorhood. The framework let you easily train a k-nn model with the acquired dataset and then perform inference with the trained model. This is faster and in most of the cases mantains a similar accuracy.
+- a solution is using k-neearest neighboorhood. The framework let you easily train a k-nn model with the acquired dataset and then perform inference with the trained model. This is faster and in most of the cases mantains a similar accuracy.
 - finally, we can train a simple multi-layer perceptron trained to classify new embeddings. We didn't include this multi-layer perceptron feature in this repository for a series of unfortunate events.
 
 Now, you should have all information to undestarstand what is going on in this repository. So, let's get started!

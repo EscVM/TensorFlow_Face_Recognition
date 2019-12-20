@@ -1,0 +1,9 @@
+{
+    "seen_file": "../faceNet/seen.json",
+    "camera_file": "../faceNet/cameras.json",
+    "MQTT_ID": "webhook_test",
+    "MQTT_broker": "192.168.127.122",
+    "MQTT_user": "pic",
+    "MQTT_pwd": "PIC4SeR",
+    "MQTT_topic": {"camera": "faceNet/camera"}
+}

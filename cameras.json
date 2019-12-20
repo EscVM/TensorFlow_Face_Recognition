@@ -1,0 +1,16 @@
+[
+ {
+     "name": "webcam",
+     "index": 1,
+     "flip": true,
+     "distance_thr": 0.75,
+     "profile_thr": 0.5,
+     "face_minsize": 75,
+     "bbNet_factor": 0.709,
+     "bbNet_thr": [ 0.6, 0.7, 0.7],
+     "method": {
+         "type": "CAP",
+         "add": 0
+     }
+ }
+]
