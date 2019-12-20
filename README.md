@@ -74,11 +74,11 @@ Once all subjects that you want to recognize are inserted in the database as exp
 ```bash
    python3 faceAssistant.py
    ```
-# 4.0 Create a simple server fort Google Home Assistant
+# 4.0 Create a simple server for Google Home Assistant
 
 Coming soon...
 
-# 5.0 Personalize the prject with the configuartions files
+# 5.0 Personalize the prject with the configurations files
 
 Coming soon...
 
