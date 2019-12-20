@@ -1,7 +1,3 @@
-numpy
 opencv-python
-sklearn
-tqdm
+numpy
 paho-mqtt
-flask
-tensorflow-gpu
