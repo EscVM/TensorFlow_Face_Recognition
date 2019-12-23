@@ -1,12 +1,12 @@
-<h1 align="center"> ~ Virtual Security Assistant ~ </h1>
+<h1 align="center"> ~ Face Recognition Assistant with TensorFlow ~ </h1>
 
 Have you ever desired a personal tireless [keeper](https://media.urbanpost.it/wp-content/uploads/2019/03/ScreenShot2016-01-19at4.18.36PM.jpg) able to recognize people passing through your gate and inform you whenever you want? Do you want to remove badges from your office and automatically and precise take note of all people coming in and out? Or, do you want to create your personal "[big brother](https://qph.fs.quoracdn.net/main-qimg-d30d05225145292c4e9186a4c8fac778)" world in your neighborhood?
-If so, this repository is right for you. Powered by a cascade of four state of the art very stupid and completely unaware neural networks, this repository is giving you the possibility to recognize with a cheap and low range camera all persons transit in its field of view. Moreover, all detections data is saved and stored in a practical ".json" file that can be used for whatever you want. For example, we created a very simple server able to parse this file and interact with Google Assistant. So, when everything is set, you will be able to wake up your google assistant from whatever device you like and ask who have been spotted by your Virtual Security Assistant. 
+If so, this repository is right for you. Powered by a cascade of four state of the art very stupid and completely unaware neural networks, this repository is giving you the possibility to recognize with a cheap and low range camera all persons transit in its field of view. Moreover, all detections data is saved and stored in a practical ".json" file that can be used for whatever you want. For example, we created a very simple server able to parse this file and interact with Google Assistant. So, when everything is set, you will be able to wake up your google assistant from whatever device you like and ask who have been spotted by your Face Recognition Assistant. 
 
-All code have been tested on a NVDIA 2080 that can easilly give you more than 40 fps. Moreover, it perfectly works also on a [Jetson Xavier](https://www.nvidia.com/it-it/autonomous-machines/embedded-systems/jetson-agx-xavier/) that can be easily installed on the site where you want to deploy your sistem (let's move this AI on the edge).
+All code have been tested on a NVDIA 2080 that can easilly give you more than 40 fps. Moreover, it has been tested and it perfectly works also on a [Jetson Xavier](https://www.nvidia.com/it-it/autonomous-machines/embedded-systems/jetson-agx-xavier/) that can be easily installed on the site where you want to deploy your sistem (let's move this AI on the edge).
 
 **Side Notes**:
-This repository is a stupid demo made in a hurry for our robotic center by me and [fsalv](https://github.com/fsalv). It has been a distraction from our research, but with the community help can really become an interesting and helpful project. We intentionally left a easy customizable framework in order to let the community work and improve this Virtual Security Assistant. We used [TensorFlow](https://www.tensorflow.org/) library and [TensorRT](https://developer.nvidia.com/tensorrt) to optimize graphs for embedded solutions. So, all networks run at FP16.
+This repository is a stupid demo made in a hurry for our robotic center by me and [fsalv](https://github.com/fsalv). It has been a distraction from our research, but with the community help can really become an interesting and helpful project. We intentionally left a easy customizable framework in order to let the community work and improve this Face Recognition Assistant. We used [TensorFlow](https://www.tensorflow.org/) library and [TensorRT](https://developer.nvidia.com/tensorrt) to optimize graphs for embedded solutions. So, all networks run at FP16.
 
 ## How it works
 
@@ -25,7 +25,7 @@ First we use the first network to detect possible faces in the given image. Then
 
 But, wait! Where is the recognition part? Hey, clever question!
 
-After getting our embedded representations, we compare it with a database with known faces. Faces that we want to recognize with our Virtual Security Assistant. About this, the framework let you easily capture a video where then automatically extracts some frames that are processed by the already explained pipeline. At the end of this "video capturing" procedure we have for each person inserted in the system a list of N embedded vectors. So, simply at run time we compare our extracted new embeddings with our database list.
+After getting our embedded representations, we compare it with a database with known faces. Faces that we want to recognize with our Face Recognition Assistant. About this, the framework let you easily capture a video where then automatically extracts some frames that are processed by the already explained pipeline. At the end of this "video capturing" procedure we have for each person inserted in the system a list of N embedded vectors. So, simply at run time we compare our extracted new embeddings with our database list.
 
 We can do that in three different ways: 
 
@@ -47,7 +47,7 @@ We used only a couple of libraries, but for your simplicity we also created a 'r
 
 1. Clone this repository
    ```bash
-   git clone https://github.com/EscVM/Virtual_Security_Assistant
+   git clone https://github.com/EscVM/TensorFlow_Face_Recognition
    ```
 2. Install the required packages
    ```bash
@@ -68,8 +68,8 @@ Nevertheless, you don't need to know all these things because it's a smart code 
 ```bash
    python3 imagesAcquisition.py
    ```
-# 3.0 Launch the Virtual Security Assistant
-Once all subjects that you want to recognize are inserted in the database as explained in section [2.0](#2.0), it's time to launch the Virtual Security Assistant. Simply launch in a terminal, inside the project folder, the following command and the code will do all the heavy lifting :)
+# 3.0 Launch the Face Recognition Assistant
+Once all subjects that you want to recognize are inserted in the database as explained in section [2.0](#2.0), it's time to launch the Face Recognition Assistant. Simply launch in a terminal, inside the project folder, the following command and the code will do all the heavy lifting :)
 
 ```bash
    python3 faceAssistant.py
@@ -85,12 +85,12 @@ Coming soon...
 # Citation
 Use this bibtex if you want to cite this repository:
 ```
-@misc{Virtual_Security_Assistant,
+@misc{TensorFlow_Face_Recognition,
   title={Face recognition system with Google Home Assistant integration.},
   author={Vittorio, Francesco},
   year={2019},
   publisher={Github},
   journal={GitHub repository},
-  howpublished={\url{https://github.com/EscVM/Virtual_Security_Assistant}},
+  howpublished={\url{https://github.com/EscVM/TensorFlow_Face_Recognition}},
 }
 ```
