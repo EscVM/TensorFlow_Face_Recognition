@@ -233,14 +233,11 @@ class FaceNet():
         if self.classifier and np.argwhere(encodings).size != 0: # KNN model only if we have front faces
             # Check threshold to choose between known and unknown
             # only the front has to be considered
-            print("Enc",encodings.shape)
             indexes = np.array([i for i in range(len(encodings)) if np.any(encodings[i])])
-            print("Ind",indexes)
             
             closest_distances = self.knn_model.kneighbors(encodings[indexes], n_neighbors=1)[0]
             are_matches = [closest_distances[int(np.where(indexes==i)[0])][0] <= self.cam.distance_thr if i in indexes
                            else None for i in range(len(encodings))]
-            print("Are_match",are_matches)
             # Predict classes and remove classifications that aren't within the threshold
             names = [name if rec else "Unknown" for name,rec in zip(self.knn_model.predict(encodings), are_matches)]
             return (boxes,names)
