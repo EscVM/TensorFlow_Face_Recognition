@@ -235,7 +235,7 @@ class FaceNet():
             # only the front has to be considered
             indexes = np.array([i for i in range(len(encodings)) if np.any(encodings[i])])
             
-            closest_distances = self.knn_model.kneighbors(encodings[indexes], n_neighbors=1)[0]
+            closest_distances = self.knn_model.kneighbors(np.array(encodings)[indexes], n_neighbors=1)[0]
             are_matches = [closest_distances[int(np.where(indexes==i)[0])][0] <= self.cam.distance_thr if i in indexes
                            else None for i in range(len(encodings))]
             # Predict classes and remove classifications that aren't within the threshold
