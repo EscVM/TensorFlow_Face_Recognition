@@ -179,6 +179,7 @@ class CameraAcquistion(object):
                     rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
                 except Exception as e:
                     print("[WARNING] Found a non-image file in", name, "folder:", img)
+                    continue
                     
                 # detect the (x, y)-coordinates of the bounding boxes
                 # corresponding to each face in the input image
