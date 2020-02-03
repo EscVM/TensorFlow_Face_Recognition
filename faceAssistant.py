@@ -23,11 +23,12 @@ class FaceNet():
         print(self.logo)
         self.get_seen() # get seen dictionary from file
         self.MQTT_initialize()
-        try:
-            self.database = pickle.loads(open(self.data_file, "rb").read()) # read the storage database
-            print("[INFO] Embeddings file imported.\n")
-        except:
-            raise FileNotFoundError("[Error] Encodings file not found. Generate it with 'imagesAcquisition.py'.")
+        if not self.classifier:
+            try:
+                self.database = pickle.loads(open(self.data_file, "rb").read()) # read the storage database
+                print("[INFO] Embeddings file imported.\n")
+            except:
+                raise FileNotFoundError("[Error] Encodings file not found. Generate it with 'imagesAcquisition.py'.")
         else: #knn model
             try:
                 self.knn_model = pickle.loads(open(self.classifier_model_path, "rb").read()) # read the storage database
