@@ -229,7 +229,7 @@ class FaceNet():
         encodings = self.face_encodings(frame, boxes)
         names = []
 
-        if self.classifier and np.argwhere(encodings).size != 0: # KNN model only if we have front faces
+        if self.classifier and not np.sum([1 for enc in encodings if enc is None]): # KNN model only if we have front faces
             # Check threshold to choose between known and unknown
             # only the front has to be considered
             indexes = np.array([i for i in range(len(encodings)) if np.any(encodings[i])])
