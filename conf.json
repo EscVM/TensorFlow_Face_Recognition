@@ -18,8 +18,8 @@
     "box_line_width": 2,
     "font_dim": 0.75,
     "MQTT_ID": "faceNet",
-    "MQTT_broker": "192.168.127.122",
-    "MQTT_user": "pic",
-    "MQTT_pwd": "PIC4SeR",
+    "MQTT_broker": "",
+    "MQTT_user": "",
+    "MQTT_pwd": "",
     "MQTT_topic": ["PICFace/camera"]
 }
